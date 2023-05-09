@@ -12,7 +12,7 @@ public class CustomiserRepositoryImpl extends BaseRepositoryImpl<Customiser> imp
 
 
     public CustomiserRepositoryImpl() {
-        super("customiser");
+        super("customer");
     }
 
     @Override
