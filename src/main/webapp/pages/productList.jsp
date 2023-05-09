@@ -24,12 +24,9 @@
 </head>
 <body>
 
-    <% List<Recipe> recipes = (List<Recipe>) request.getAttribute("recipes");
-    %>
+    <% List<Recipe> recipes = (List<Recipe>) request.getAttribute("recipes");%>
 
-    <% if(recipes.size() == 0){ %>
-        <h1 class="alert alert-danger">LISTE VIDE</h1>
-    <% }else{ %>
+
     <header>
         <h1>Bienvenue sur la liste des produits</h1>
         <ul class="nav justify-content-end">
@@ -78,7 +75,6 @@
             </tbody>
         </table>
     </section>
-    <% } %>
 
 
 

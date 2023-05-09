@@ -3,6 +3,7 @@ package be.technifutur.demoservletjava23.servlets;
 import be.technifutur.demoservletjava23.models.Recipe;
 import be.technifutur.demoservletjava23.repositories.RecipeRepository;
 import be.technifutur.demoservletjava23.repositories.RecipeRepositoryImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,7 +11,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +38,10 @@ public class ProductListServlet extends HttpServlet {
         req.setAttribute("recipes", recipes);
 
         req.getRequestDispatcher("pages/productList.jsp").forward(req, resp);
+
+
+
+
     }
 
     @Override
