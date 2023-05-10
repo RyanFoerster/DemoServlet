@@ -1,4 +1,16 @@
 
+
+function createInput(type, name, value, hidden) {
+    let input = document.createElement("input");
+    input.setAttribute("type", type);
+    input.setAttribute("name", name);
+    input.setAttribute("value", value);
+    if (hidden) {
+        input.setAttribute("hidden", "hidden");
+    }
+    return input;
+}
+
 function switchMode(id) {
     const myCard = document.getElementById("myCard" + id);
     const myCardBody = document.getElementById("myCardBody" + id);
@@ -6,34 +18,22 @@ function switchMode(id) {
     myCard.removeChild(myCardBody);
 
     let myNewCardBody = document.createElement("div");
-    myNewCardBody.setAttribute("class", "card-body");
+    myNewCardBody.classList.add("card-body");
     myNewCardBody.setAttribute("id", "myCardBody" + id);
 
     let myForm = document.createElement("form");
     myForm.setAttribute("method", "post");
     myForm.setAttribute("action", "updateProduct");
-    myForm.setAttribute("class", "form_update");
+    myForm.classList.add("form_update");
 
-    let inputName = document.createElement("input");
-    inputName.setAttribute("type", "text");
-    inputName.setAttribute("name", "recipe_name");
-    inputName.setAttribute("value", myCardBody.firstElementChild.innerHTML);
-
-    let inputIngredient = document.createElement("input");
-    inputIngredient.setAttribute("type", "text");
-    inputIngredient.setAttribute("name", "recipe_ingredient");
-    inputIngredient.setAttribute("value", myCardBody.children[1].innerHTML);
-
-    let hiddenInput = document.createElement("input");
-    hiddenInput.setAttribute("type", "text");
-    hiddenInput.setAttribute("name", "recipe_id");
-    hiddenInput.setAttribute("value", id);
-    hiddenInput.setAttribute("hidden", "hidden");
+    let inputName = createInput("text", "recipe_name", myCardBody.firstElementChild.innerHTML);
+    let inputIngredient = createInput("text", "recipe_ingredient", myCardBody.children[1].innerHTML);
+    let hiddenInput = createInput("text", "recipe_id", id, true);
 
     let confirmButton = document.createElement("button");
     confirmButton.setAttribute("type", "submit");
-    confirmButton.setAttribute("class", "btn btn-info button-update");
-    confirmButton.innerHTML = "Confirmer";
+    confirmButton.classList.add("btn", "btn-info", "button-update");
+    confirmButton.textContent = "Confirmer";
 
     myForm.appendChild(inputName);
     myForm.appendChild(inputIngredient);
@@ -42,7 +42,7 @@ function switchMode(id) {
 
     myNewCardBody.appendChild(myForm);
 
-
     myCard.appendChild(myNewCardBody);
 }
+
 
