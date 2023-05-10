@@ -14,14 +14,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/addProduct.css">
     <title>Title</title>
 </head>
 <body>
     <header>
         <ul class="nav justify-content-end">
             <li class="nav-item active">
-                <a class="nav-link active" href="">Accueil</a>
+                <a class="nav-link active" href="<%= request.getContextPath() + "/"%>">Accueil</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="productList">Product List</a>
@@ -29,14 +29,26 @@
         </ul>
     </header>
 
-
-    <form action="addProduct" method="post" class="form">
-        <label for="productName" class="form-label">Product name : </label>
-        <input type="text" name="productName" id="productName" class="form-control-sm" value="${productName}">
-        <label for="productIngredient" class="form-label">Product ingredient : </label>
-        <input type="text" name="productIngredient" id="productIngredient" class="form-control-sm" value="${productIngredient}">
-        <button type="submit" class="btn btn-primary">Add product</button>
+    <form action="addProduct" method="post" class="decor">
+        <div class="form-left-decoration"></div>
+        <div class="form-right-decoration"></div>
+        <div class="circle"></div>
+        <div class="form-inner">
+            <label for="productName" class="form-label">Product name : </label>
+            <input type="text" name="productName" id="productName" placeholder="Name">
+            <label for="productIngredient" class="form-label">Product ingredient : </label>
+            <input type="text" name="productIngredient" placeholder="Ingredient..." id="productIngredient">
+            <button type="submit">Add product</button>
+        </div>
     </form>
+
+<%--    <form action="addProduct" method="post" class="form">--%>
+<%--        <label for="productName" class="form-label">Product name : </label>--%>
+<%--        <input type="text" name="productName" id="productName" class="form-control-sm" value="${productName}">--%>
+<%--        <label for="productIngredient" class="form-label">Product ingredient : </label>--%>
+<%--        <input type="text" name="productIngredient" id="productIngredient" class="form-control-sm" value="${productIngredient}">--%>
+<%--        <button type="submit" class="btn btn-primary">Add product</button>--%>
+<%--    </form>--%>
 
 
 </body>

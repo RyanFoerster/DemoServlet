@@ -16,36 +16,36 @@ import java.io.IOException;
 public class UpdateServlet extends HttpServlet {
     RecipeServiceImpl recipeService = new RecipeServiceImpl();
     HttpSession session;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        session = req.getSession(true);
-        Integer id = Integer.parseInt(req.getParameter("id"));
-        Recipe recipe = recipeService.getById(id);
-        String productName = recipe.getName();
-        String productIngredient = recipe.getIngredient();
 
-        session.setAttribute("productName", productName);
-        session.setAttribute("productIngredient", productIngredient);
-        session.setAttribute("productId", id);
-
-        req.getRequestDispatcher("pages/updateProduct.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String productName = req.getParameter("productName");
-        String productIngredient = req.getParameter("productIngredient");
+        session = req.getSession();
+
+        String productName = (String) req.getParameter("recipe_name");
+        String productIngredient = (String) req.getParameter("recipe_ingredient");
+
+        System.out.println(productName);
+        System.out.println(productIngredient);
+        System.out.println();
 
         Recipe recipe = Recipe.builder().name(productName).ingredient(productIngredient).build();
-        System.out.println(session.getAttribute("productId").toString());
-        Integer id = Integer.parseInt(session.getAttribute("productId").toString());
-        Boolean success = recipeService.update(id, recipe);
 
-        if(success){
+        Integer id = Integer.parseInt(req.getParameter("recipe_id"));
 
-        }
+        recipeService.update(id, recipe);
+
+        Boolean setUpdate = (Boolean) session.getAttribute("setUpdate");
+
+        setUpdate = false;
+        session.setAttribute("setUpdate", setUpdate);
+
         resp.sendRedirect("productList");
     }
 

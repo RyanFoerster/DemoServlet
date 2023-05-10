@@ -1,14 +1,17 @@
 package be.technifutur.demoservletjava23.servlets;
 
-import java.io.*;
-
 import be.technifutur.demoservletjava23.dtos.ConnectedCustomiserDto;
 import be.technifutur.demoservletjava23.exceptions.InvalidPasswordUserException;
 import be.technifutur.demoservletjava23.models.Customiser;
 import be.technifutur.demoservletjava23.services.CustomiserServiceImpl;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
 
 @WebServlet(name = "login", urlPatterns = "/login", loadOnStartup = 1)
 public class LoginServlet extends HttpServlet {
@@ -40,6 +43,8 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("user", ConnectedCustomiserDto.fromEntity(customiser));
             response.sendRedirect(request.getContextPath() + "/");
+//            request.getRequestDispatcher("pages/home.jsp").forward(request, response);
+//            response.sendRedirect("pages/home.jsp");
             return;
         }catch (InvalidPasswordUserException e){
             request.setAttribute("errorMessage", "Invalid password");

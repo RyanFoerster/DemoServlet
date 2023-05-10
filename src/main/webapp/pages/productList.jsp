@@ -24,7 +24,10 @@
 </head>
 <body>
 
-    <% List<Recipe> recipes = (List<Recipe>) request.getAttribute("recipes");%>
+    <%
+        List<Recipe> recipes = (List<Recipe>) request.getAttribute("recipes");
+        Boolean setUpdate = (Boolean) session.getAttribute("setUpdate");
+    %>
 
 
     <header>
@@ -39,44 +42,30 @@
         </ul>
     </header>
 
-    <section class="form-div">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Recipe name</th>
-                    <th>Recipe ingredient</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <%
-                    recipes.sort(Comparator.comparing(Recipe::getId));
-                    for (Recipe r : recipes){ %>
-                <tr>
-                    <td><%= r.getId()%></td>
-                    <td><%= r.getName()%></td>
-                    <td><%= r.getIngredient()%></td>
-
-                        <td>
-                            <form action="updateProduct" method="get">
-                                <button type="submit" class="btn btn-info" name="upd" id="button-update">Update</button>
-                                <input type="text" name="id" value="<%= r.getId()%>" hidden="hidden">
-                            </form>
-                        </td>
-                    <td>
-                        <form action="productList" method="get">
-                            <button type="submit" class="btn btn-info" name="del" id="button-delete">Delete</button>
+    <section class="container-style">
+        <%
+                recipes.sort(Comparator.comparing(Recipe::getId));
+                for (Recipe r : recipes){
+        %>
+            <div id="myCard<%=r.getId()%>" class="card" style="width: 18rem;">
+                <div id="myCardBody<%=r.getId()%>" class="card-body">
+                    <h5 class="card-title"><%= r.getName()%></h5>
+                    <p class="card-text"><%= r.getIngredient().length() > 50 ? r.getIngredient().substring(0,50) + "..." : r.getIngredient() %></p>
+                    <div class="button-style">
+                        <form action="productList" method="post">
+                            <button type="button" class="btn btn-info button-update" name="upd" onclick="switchMode(<%= r.getId() %>)">Update</button>
                             <input type="text" name="id" value="<%= r.getId()%>" hidden="hidden">
                         </form>
-                    </td>
-                </tr>
-                <% } %>
-            </tbody>
-        </table>
+                        <form action="productList" method="get">
+                            <button type="submit" class="btn btn-info button-delete" name="del">Delete</button>
+                            <input type="text" name="id" value="<%= r.getId()%>" hidden="hidden">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% } %>
     </section>
 
-
-
+    <script src="script/scriptUpdate.js"></script>
 </body>
 </html>

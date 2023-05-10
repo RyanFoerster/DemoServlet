@@ -23,7 +23,7 @@ public class LogoutServlet extends HttpServlet {
 
         if (session != null) {
             // Fermer la session en cours
-            session.invalidate();
+            session.removeAttribute("user");
         }
 
         // Rediriger l'utilisateur vers la page de login

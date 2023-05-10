@@ -1,46 +1,54 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: studentdev03
+  Date: 10-05-23
+  Time: 09:28
+  To change this template use File | Settings | File Templates.
+--%>
+<% if(session.getAttribute("user") == null){
+    response.sendRedirect(request.getContextPath() + "/login");
+}%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-        <title>JSP - Hello World</title>
-        <link rel="icon" type="image/x-icon" href="images/logo.png">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/style.css" type="text/css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bienvenue</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/home.css">
     </head>
     <body>
-
         <header>
-                <% if(session.getAttribute("user") != null){ %>
-                <h1>Hello ${user.login} !</h1>
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item active">
-                            <a class="nav-link active" href="#">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="addProduct">Add Product</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="productList">Product list</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="logout">Logout</a>
-                        </li>
-                    </ul>
-                <% } else { %>
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link" href="login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register">Register</a>
-                        </li>
-                    </ul>
-                <% } %>
-
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="addProduct">Add Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="productList">Product list</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+            </ul>
         </header>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam aut culpa cum, dicta distinctio ea eaque est
+                facilis harum illo iste, laudantium libero molestiae nihil quae quibusdam quos unde.
+            </p>
+            <p>A alias commodi deleniti distinctio incidunt ipsum, nostrum numquam optio possimus quasi recusandae reprehenderit
+                suscipit voluptatibus? Accusamus dolorem dolores eaque possimus quam veniam vero. Cumque iusto molestiae neque
+                obcaecati placeat.
+            </p>
+            <p>Delectus dolorum impedit perferendis perspiciatis quam quis reiciendis ut! Ab alias blanditiis cupiditate debitis,
+                eligendi et exercitationem fugiat fugit incidunt ipsa itaque molestias quaerat quia quo reiciendis sed sint
+                suscipit!
+            </p>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     </body>
 </html>
