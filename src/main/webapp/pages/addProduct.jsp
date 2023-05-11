@@ -21,7 +21,7 @@
     <header>
         <ul class="nav justify-content-end">
             <li class="nav-item active">
-                <a class="nav-link active" href="<%= request.getContextPath() + "/"%>">Accueil</a>
+                <a class="nav-link active" href="<%= request.getContextPath() + "/"%>">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="productList">Product List</a>

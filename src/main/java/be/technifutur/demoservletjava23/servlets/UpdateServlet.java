@@ -41,11 +41,6 @@ public class UpdateServlet extends HttpServlet {
 
         recipeService.update(id, recipe);
 
-        Boolean setUpdate = (Boolean) session.getAttribute("setUpdate");
-
-        setUpdate = false;
-        session.setAttribute("setUpdate", setUpdate);
-
         resp.sendRedirect("productList");
     }
 

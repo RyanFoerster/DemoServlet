@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+.wrapper{
+    max-width: 1000px;
+    padding: 15px;
+    margin: 35px auto 0;
+
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-link{
+    color: #3c97bf !important;
+}
+
+h1{
+    text-align: center;
+    padding: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    align-self: center;
+}
+
+.user_name{
+    color: #3c97bf;
+}
+
+.nav{
+    position: fixed;
+    left: 80%;
+}
+
+p{
+    text-align: justify;
+    font-size: 20px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #3c97bf;
+    padding: 10px;
+    border-radius: 10px;
+}

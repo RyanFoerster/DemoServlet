@@ -34,7 +34,7 @@
         <h1>Bienvenue sur la liste des produits</h1>
         <ul class="nav justify-content-end">
             <li class="nav-item active">
-                <a class="nav-link active" href="login">Accueil</a>
+                <a class="nav-link active" href="<%= request.getContextPath() + "/"%>">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="addProduct">Add Product</a>
@@ -47,7 +47,7 @@
                 recipes.sort(Comparator.comparing(Recipe::getId));
                 for (Recipe r : recipes){
         %>
-            <div id="myCard<%=r.getId()%>" class="card" style="width: 18rem;">
+            <div id="myCard<%=r.getId()%>" class="card card-main" style="width: 18rem;">
                 <div id="myCardBody<%=r.getId()%>" class="card-body">
                     <h5 class="card-title"><%= r.getName()%></h5>
                     <p class="card-text"><%= r.getIngredient().length() > 50 ? r.getIngredient().substring(0,50) + "..." : r.getIngredient() %></p>
@@ -64,6 +64,7 @@
                 </div>
             </div>
         <% } %>
+
     </section>
 
     <script src="script/scriptUpdate.js"></script>

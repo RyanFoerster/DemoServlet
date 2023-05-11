@@ -5,6 +5,8 @@ function createInput(type, name, value, hidden) {
     input.setAttribute("type", type);
     input.setAttribute("name", name);
     input.setAttribute("value", value);
+    input.style.borderRadius = "8px";
+    input.style.border = "1px solid black";
     if (hidden) {
         input.setAttribute("hidden", "hidden");
     }
@@ -44,5 +46,6 @@ function switchMode(id) {
 
     myCard.appendChild(myNewCardBody);
 }
+
 
 
