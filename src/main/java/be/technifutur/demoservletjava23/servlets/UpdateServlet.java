@@ -31,10 +31,6 @@ public class UpdateServlet extends HttpServlet {
         String productName = (String) req.getParameter("recipe_name");
         String productIngredient = (String) req.getParameter("recipe_ingredient");
 
-        System.out.println(productName);
-        System.out.println(productIngredient);
-        System.out.println();
-
         Recipe recipe = Recipe.builder().name(productName).ingredient(productIngredient).build();
 
         Integer id = Integer.parseInt(req.getParameter("recipe_id"));

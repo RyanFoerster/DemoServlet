@@ -1,5 +1,4 @@
 
-
 function createInput(type, name, value, hidden) {
     let input = document.createElement("input");
     input.setAttribute("type", type);
@@ -46,6 +45,11 @@ function switchMode(id) {
 
     myCard.appendChild(myNewCardBody);
 }
+
+
+
+
+
 
 
 

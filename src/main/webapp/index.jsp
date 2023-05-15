@@ -24,6 +24,9 @@
     <body>
     <%
         ConnectedCustomiserDto user = (ConnectedCustomiserDto) session.getAttribute("user");
+        if(user == null){
+            request.getRequestDispatcher("login");
+        }else{
         String login = user.getLogin().substring(0,1).toUpperCase() + user.getLogin().substring(1).toLowerCase();
     %>
         <header>
@@ -40,7 +43,7 @@
                 </li>
             </ul>
         </header>
-
+    <% } %>
         <div class="wrapper">
             <section>
                 <p>
@@ -120,7 +123,7 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/b05136d21f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

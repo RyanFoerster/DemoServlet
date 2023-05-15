@@ -10,9 +10,6 @@
 <body>
 
 <header>
-    <% if(session.getAttribute("user") != null){ %>
-
-    <% } else { %>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="register" method="post">
@@ -45,8 +42,6 @@
             </div>
         </div>
     </div>
-
-    <% } %>
 </header>
 
 

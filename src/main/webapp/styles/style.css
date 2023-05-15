@@ -107,7 +107,11 @@ h1{
 .button-style {
     display: flex;
     justify-content: space-between;
-    margin-top: auto;
+}
+
+.btn{
+    width: 80px;
+    margin-right: 5px;
 }
 
 .form_update input {
@@ -141,6 +145,18 @@ h1{
 .button-delete:hover {
     background-color: #c82333;
     border-color: #bd2130;
+    transform: scale(1.1);
+}
+
+.button-details{
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+    transition: all 0.2s ease-in-out;
+}
+
+.button-details:hover {
+    background-color: #0A91AD;
+    border-color: #0A91AD;
     transform: scale(1.1);
 }
 
